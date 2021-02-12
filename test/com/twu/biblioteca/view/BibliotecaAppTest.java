@@ -30,9 +30,10 @@ public class BibliotecaAppTest {
                 "- Title: Livro1\tAuthor: Autor1\tPublication Year: 2021",
                 "- Title: Livro2\tAuthor: Autor2\tPublication Year: 2019");
 
+        mock.scanValue = 0;
         BibliotecaApp.option(1, new MockLibrary(), mock);
-
-        assertEquals(expectedMessages, mock.messageList);
+        assertEquals(expectedMessages.get(0), mock.messageList.get(0));
+        assertEquals(expectedMessages.get(1), mock.messageList.get(1));
     }
 
     static class MockLibrary implements ILibrary {
@@ -40,6 +41,11 @@ public class BibliotecaAppTest {
         public List<Book> bookList() {
             return Arrays.asList(new Book("Livro1","Autor1", 2021),
                     new Book("Livro2","Autor2", 2019));
+        }
+
+        @Override
+        public Boolean borrow(String title) {
+            return null;
         }
     }
 
@@ -55,12 +61,17 @@ public class BibliotecaAppTest {
         public int scanner() {
             return scanValue;
         }
+
+        @Override
+        public String scannerText() {
+            return "Text";
+        }
     }
 
     @Test
     public void shouldShowMessageWhenUserChooseInvalidOption(){
         mock.scanValue = 0;
-        BibliotecaApp.option(2, new MockLibrary(), mock);
+        BibliotecaApp.option(10, new MockLibrary(), mock);
         assertEquals("Please select a valid option!",mock.messageList.get(0));
     }
 

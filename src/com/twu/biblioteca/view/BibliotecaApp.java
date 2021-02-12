@@ -31,15 +31,15 @@ public class BibliotecaApp {
             case 2:
                 system.println("Write the book's name and press enter");
                 if (libraryController.borrow(system.scannerText())) {
-                    system.println("Thank you! Enjoy the book");
+                    system.println("Thank you! Enjoy the book.");
                 } else {
-                    system.println("Sorry, that book is not available");
+                    system.println("Sorry, that book is not available.");
                 }
                 break;
             case 3:
                 system.println("Write the book's name and press enter");
                 if (libraryController.returnBook(system.scannerText())) {
-                    system.println("Thank you for returning the book");
+                    system.println("Thank you for returning the book.");
                 } else {
                     system.println("That is not a valid book to return.");
                 }

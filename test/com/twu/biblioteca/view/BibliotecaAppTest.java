@@ -44,8 +44,13 @@ public class BibliotecaAppTest {
         }
 
         @Override
-        public Boolean borrow(String title) {
-            return null;
+        public boolean borrow(String title) {
+            return false;
+        }
+
+        @Override
+        public boolean returnBook(String title) {
+            return false;
         }
     }
 

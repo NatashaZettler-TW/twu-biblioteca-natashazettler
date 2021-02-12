@@ -51,4 +51,36 @@ public class LibraryControllerTest {
         assertTrue(libraryController.borrow("Livro1"));
         assertFalse(libraryController.borrow("Livro1"));
     }
+
+    @Test
+    public void shouldReturnABook(){
+        assertTrue(libraryController.borrow("Livro1"));
+        assertTrue(libraryController.returnBook("Livro1"));
+    }
+
+    @Test
+    public void shouldNotReturnABookWhenThisBookAlreadyReturn(){
+        assertFalse(libraryController.returnBook("Livro1"));
+    }
+
+    @Test
+    public void shouldReturnABookWithTitleLowerCase(){
+        assertTrue(libraryController.borrow("liVro1"));
+        assertTrue(libraryController.returnBook("livro1"));
+    }
+
+    @Test
+    public void shouldNotReturnABook(){
+        assertFalse(libraryController.returnBook("Livro3"));
+    }
+
+    @Test
+    public void shouldReturnBookListNotBorrowBooks(){
+        List<Book> expectedBookList = Arrays.asList(new Book("Livro1","Autor1", 2021),
+                new Book("Livro2","Autor2", 2019));
+
+        assertTrue(libraryController.borrow("liVro1"));
+        assertTrue(libraryController.returnBook("livro1"));
+        assertEquals(expectedBookList, libraryController.bookList());
+    }
 }

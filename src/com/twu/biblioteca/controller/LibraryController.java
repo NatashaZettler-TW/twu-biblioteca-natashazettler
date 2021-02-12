@@ -44,6 +44,6 @@ public class LibraryController implements ILibrary{
     }
 
     private boolean bookTitleIsEquals(String title, Book book) {
-        return book.getTitle().toLowerCase().equals(title.toLowerCase());
+        return book.getTitle().equalsIgnoreCase(title);
     }
 }

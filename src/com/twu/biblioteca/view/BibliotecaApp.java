@@ -29,7 +29,11 @@ public class BibliotecaApp {
                 break;
             case 2:
                 system.println("Write the book's name and press enter");
-                libraryController.borrow(system.scannerText());
+                if (libraryController.borrow(system.scannerText())) {
+                    system.println("Thank you! Enjoy the book");
+                } else {
+                    system.println("Sorry, that book is not available");
+                }
                 break;
             case 0:
                 system.println("Thank you for use the system. Come back soon.");

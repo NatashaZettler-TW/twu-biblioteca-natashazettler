@@ -26,7 +26,7 @@ public class BibliotecaApp {
                 }
                 break;
             case 0:
-                system.println("bye");
+                system.println("Thank you for use the system. Come back soon.");
                 return;
             default:
                 system.println("Please select a valid option!");

@@ -19,15 +19,20 @@ public class BibliotecaApp {
     }
 
     public static void option(int menu, ILibrary libraryController, ICommandLine system){
-        switch(menu){
+        switch (menu) {
             case 1:
-                for(Book book : libraryController.bookList()){
-                    system.println("- "+book.toString());
+                for (Book book : libraryController.bookList()) {
+                    system.println("- " + book.toString());
                 }
                 break;
+            case 0:
+                system.println("bye");
+                return;
             default:
+                system.println("Please select a valid option!");
                 break;
         }
+        option(menu(system), libraryController, system);
     }
 
     public static void main(String[] args) {

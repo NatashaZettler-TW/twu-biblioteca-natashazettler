@@ -12,7 +12,7 @@ public class LibraryControllerTest {
 
     @Test
     public void shouldReturnBookList(){
-        List<Book> expectedBookList = Arrays.asList(new Book("Livro1","Autor1"), new Book("Livro2","Autor2"));
+        List<Book> expectedBookList = Arrays.asList(new Book("Livro1","Autor1", 2021), new Book("Livro2","Autor2", 2019));
         LibraryController libraryController = new LibraryController();
         assertEquals(expectedBookList, libraryController.bookList());
     }

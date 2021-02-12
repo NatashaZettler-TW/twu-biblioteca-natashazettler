@@ -63,6 +63,12 @@ public class BibliotecaAppTest {
         BibliotecaApp.option(2, new MockLibrary(), mock);
         assertEquals("Please select a valid option!",mock.messageList.get(0));
     }
+
+    @Test
+    public void shouldShowMessageWhenUserChooseQuitApplication(){
+        BibliotecaApp.option(0, new MockLibrary(), mock);
+        assertEquals("Thank you for use the system. Come back soon.",mock.messageList.get(0));
+    }
 }
 
 

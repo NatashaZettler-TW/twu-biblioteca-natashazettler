@@ -3,6 +3,8 @@ package com.twu.biblioteca.view;
 import java.util.Scanner;
 
 public class SystemCommandLine implements ICommandLine{
+    private Scanner input;
+
     @Override
     public void println(String message) {
         System.out.println(message);
@@ -10,7 +12,13 @@ public class SystemCommandLine implements ICommandLine{
 
     @Override
     public int scanner() {
-        Scanner input = new Scanner(System.in);
+        input = new Scanner(System.in);
         return input.nextInt();
+    }
+
+    @Override
+    public String scannerText() {
+        input = new Scanner(System.in);
+        return input.next();
     }
 }

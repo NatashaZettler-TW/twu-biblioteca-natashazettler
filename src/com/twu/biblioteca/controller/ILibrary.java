@@ -6,4 +6,5 @@ import java.util.List;
 public interface ILibrary {
 
     List<Book> bookList();
+    Boolean borrow(String title);
 }

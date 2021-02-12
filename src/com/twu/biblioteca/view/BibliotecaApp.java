@@ -11,6 +11,8 @@ public class BibliotecaApp {
             try {
                 system.println("\nChoose one option");
                 system.println("\t1 - List of books");
+                system.println("\t2 - Borrow book");
+                system.println("\t0 - Quit");
                 return system.scanner();
             } catch (Exception exception) {
                 system.println("Ops. Something went wrong. Try again.");
@@ -24,6 +26,10 @@ public class BibliotecaApp {
                 for (Book book : libraryController.bookList()) {
                     system.println("- " + book.toString());
                 }
+                break;
+            case 2:
+                system.println("Write the book's name and press enter");
+                libraryController.borrow(system.scannerText());
                 break;
             case 0:
                 system.println("Thank you for use the system. Come back soon.");

@@ -7,6 +7,6 @@ import java.util.List;
 public class LibraryController {
 
     public List<Book> bookList() {
-        return Arrays.asList(new Book("Livro1","Autor1"), new Book("Livro2","Autor2"));
+        return Arrays.asList(new Book("Livro1","Autor1", 2021), new Book("Livro2","Autor2", 2019));
     }
 }

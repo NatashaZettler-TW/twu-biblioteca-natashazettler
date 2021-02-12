@@ -20,7 +20,7 @@ public class LibraryController implements ILibrary{
     }
 
     @Override
-    public Boolean borrow(String title) {
+    public boolean borrow(String title) {
         for(Book book : this.bookList){
             if(bookTitleIsEquals(title, book) && !book.getBorrowed()){
                 book.setBorrowed(true);
@@ -28,6 +28,18 @@ public class LibraryController implements ILibrary{
             }
         }
         
+        return false;
+    }
+
+    @Override
+    public boolean returnBook(String title) {
+        for(Book book : this.bookList){
+            if(bookTitleIsEquals(title, book) && book.getBorrowed()){
+                book.setBorrowed(false);
+                return true;
+            }
+        }
+
         return false;
     }
 
